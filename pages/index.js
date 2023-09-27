@@ -1,6 +1,6 @@
 import { HiArrowNarrowRight } from 'react-icons/hi'
 import { ActivityCard, ContentCard, ContentActionCard } from "@/components"
-import { activities, videos } from '@/dummyData'
+import { activities, peoples, videos } from '@/dummyData'
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
               />
             )
           })}
-          <ContentActionCard text1='Upload' text2='Your Own Video' />
+          <ContentActionCard type='upload' text1='Upload' text2='Your Own Video' />
         </div>
       </div>
 
@@ -37,7 +37,7 @@ export default function Home() {
           <p className='mr-1 md:mx-auto'>View timeline <span className='xl:inline hidden'>/ Filter activities</span></p>
           <HiArrowNarrowRight className='md:hidden'/> 
         </div>
-        <div className=''>
+        <div>
           {activities.map((activity, index) => {
             return(
               <ActivityCard key={index} name={activity.name} message={activity.message} timeElapsed={activity.timeElapsed} />
@@ -46,8 +46,30 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* People */}
+      <div className='mb-10 md:col-span-2'>
+        <div className='flex items-center md:items-end mb-4'>
+          <h2 className='mr-auto md:mr-0 md:text-3xl'>People</h2>
+          <p className='mr-1 md:mx-auto'>View all</p>
+          <HiArrowNarrowRight className='mr-4 md:hidden'/> 
+        </div>
+        <div className='grid grid-flow-col gap-x-3 overflow-hidden md:grid-cols-3 md:grid-flow-row md:gap-2'>
+          {peoples.map((people, index) => {
+            return(
+              <ContentCard
+                creator={people.creator}
+                type='people'
+                index={index}
+                role={people.role}
+                views={people.views}
+                previewImg={people.previewImg}
+              />
+            )
+          })}
+          <ContentActionCard type='show' text1='Show' text2='Your Work' />
+        </div>
+      </div>
+
       {/* Channel */}
       {/* Documents */}
     </div>
