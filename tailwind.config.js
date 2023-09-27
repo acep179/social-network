@@ -10,6 +10,9 @@ module.exports = {
       roboto: ['Roboto', 'sans-serif'],
     },
     extend: {
+      screens: {
+        xsm: '425px',
+      },
       colors: {
         pri: '#953E46',
         sec: '#F4E3CF',
