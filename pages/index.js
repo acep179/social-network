@@ -1,15 +1,15 @@
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { ContentCard, ContentActionCard } from "@/components"
-import { videos } from '@/dummyData'
+import { ActivityCard, ContentCard, ContentActionCard } from "@/components"
+import { activities, videos } from '@/dummyData'
 
 export default function Home() {
   return (
-    <div className="pl-4 md:pl-0 grid grid-cols-3">
+    <div className="pl-4 md:pl-0 grid md:grid-cols-3 grid-cols-1 gap-5">
 
       {/* Videos */}
-      <div className='mb-10 md:col-span-2 col-span-3'>
-        <div className='flex items-center mb-4'>
-          <h2 className='mr-auto md:mr-0'>Videos</h2>
+      <div className='mb-10 md:col-span-2'>
+        <div className='flex items-center md:items-end mb-4'>
+          <h2 className='mr-auto md:mr-0 md:text-3xl'>Videos</h2>
           <p className='mr-1 md:mx-auto'>Browse all videos</p>
           <HiArrowNarrowRight className='mr-4 md:hidden'/> 
         </div>
@@ -30,8 +30,23 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Activity */}
+      <div className='mb-10 pr-4 md:border-sec md:border-b-2'>
+        <div className='flex items-center md:items-end mb-4 md:pb-4 md:border-b-2 md:border-sec'>
+          <h2 className='mr-auto md:mr-0 md:text-3xl'>Activity</h2>
+          <p className='mr-1 md:mx-auto'>View timeline <span className='xl:inline hidden'>/ Filter activities</span></p>
+          <HiArrowNarrowRight className='md:hidden'/> 
+        </div>
+        <div className=''>
+          {activities.map((activity, index) => {
+            return(
+              <ActivityCard key={index} name={activity.name} message={activity.message} timeElapsed={activity.timeElapsed} />
+            )
+          })}
+        </div>
+      </div>
+
+
       {/* People */}
       {/* Channel */}
       {/* Documents */}

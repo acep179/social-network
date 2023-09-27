@@ -1,3 +1,4 @@
+import activities from './activities'
 import videos from './videos'
 
-export { videos }
+export { activities, videos }
