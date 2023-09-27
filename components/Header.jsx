@@ -41,7 +41,7 @@ function Header() {
     <div className="py-7 md:px-0 px-5 grid grid-cols-12 md:gap-x-6 gap-y-3 items-center">
 
       <div className='lg:col-span-3 md:col-span-4 col-span-8 md:order-1 order-2 md:block flex justify-center'>
-        <h1 className='font-roboto sm:text-4xl text-3xl font-thin'> <strong>Social</strong>Network</h1>
+        <h1 className='sm:text-4xl text-xl font-thin'> <strong>Social</strong>Network</h1>
       </div>
 
       <div className='lg:col-span-5 md:col-span-4 col-span-12 md:order-2 order-5 bg-sec'>
