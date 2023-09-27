@@ -1,4 +1,4 @@
-import { FaRegDotCircle } from 'react-icons/fa'
+import { FaPlus, FaRegDotCircle } from 'react-icons/fa'
 import { TbArrowBigUpFilled } from 'react-icons/tb'
 
 function ContentActionCard({type, text1, text2}) {
@@ -9,7 +9,10 @@ function ContentActionCard({type, text1, text2}) {
           {type === 'upload' ?
             <TbArrowBigUpFilled className='h-3 w-3'/>
               :
+            type === 'show' ?
             <FaRegDotCircle className='h-3 w-3' />
+              :
+            <FaPlus className='h-3 w-3'/>
           }
         </div>
         <div>

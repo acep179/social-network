@@ -7,13 +7,13 @@ const peoples = [
     },
     {
         creator: 'Michael Keliph',
-        role: '',
+        role: 'Frontend Dev.',
         views: '',
         previewImg: null,
     },
     {
         creator: 'Ahmed Yasin',
-        role: '',
+        role: 'User experience designer',
         views: '',
         previewImg: null,
     },
