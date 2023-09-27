@@ -1,6 +1,6 @@
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import { ActivityCard, ContentCard, ContentActionCard } from "@/components"
-import { activities, peoples, videos } from '@/dummyData'
+import { ActivityCard, ChannelCard, ContentCard, ContentActionCard } from "@/components"
+import { activities, channels, peoples, videos } from '@/dummyData'
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       {/* Videos */}
       <div className='mb-10 md:col-span-2'>
         <div className='flex items-center md:items-end mb-4'>
-          <h2 className='mr-auto md:mr-0 md:text-3xl'>Videos</h2>
+          <h2 className='mr-auto md:mr-0 md:text-3xl text-xl'>Videos</h2>
           <p className='mr-1 md:mx-auto'>Browse all videos</p>
           <HiArrowNarrowRight className='mr-4 md:hidden'/> 
         </div>
@@ -33,7 +33,7 @@ export default function Home() {
       {/* Activity */}
       <div className='mb-10 pr-4 md:border-sec md:border-b-2'>
         <div className='flex items-center md:items-end mb-4 md:pb-4 md:border-b-2 md:border-sec'>
-          <h2 className='mr-auto md:mr-0 md:text-3xl'>Activity</h2>
+          <h2 className='mr-auto md:mr-0 md:text-3xl text-xl'>Activity</h2>
           <p className='mr-1 md:mx-auto'>View timeline <span className='xl:inline hidden'>/ Filter activities</span></p>
           <HiArrowNarrowRight className='md:hidden'/> 
         </div>
@@ -49,7 +49,7 @@ export default function Home() {
       {/* People */}
       <div className='mb-10 md:col-span-2'>
         <div className='flex items-center md:items-end mb-4'>
-          <h2 className='mr-auto md:mr-0 md:text-3xl'>People</h2>
+          <h2 className='mr-auto md:mr-0 md:text-3xl text-xl'>People</h2>
           <p className='mr-1 md:mx-auto'>View all</p>
           <HiArrowNarrowRight className='mr-4 md:hidden'/> 
         </div>
@@ -71,6 +71,21 @@ export default function Home() {
       </div>
 
       {/* Channel */}
+      <div className='mb-10 pr-4 md:border-sec md:border-b-2'>
+        <div className='flex items-center md:items-end mb-4 md:pb-4 md:border-b-2 md:border-sec'>
+          <h2 className='mr-auto md:mr-0 md:text-3xl text-xl'>Channel</h2>
+          <p className='mr-1 md:mx-auto md:text-xs lg:text-base'>Browse all channel</p>
+          <HiArrowNarrowRight className='md:hidden'/> 
+        </div>
+        <div className='grid grid-cols-3 md:grid-cols-2 gap-3 mr-4 pb-4'>
+          {channels.map((channel, index) => {
+            return (
+              <ChannelCard key={index} title={channel.title}/>
+            )
+          })}
+        </div>
+      </div>
+
       {/* Documents */}
     </div>
   )
