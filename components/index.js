@@ -6,6 +6,8 @@ import ChannelCard from "./ChannelCard";
 import ContentCard from "./ContentCard";
 import ContentActionCard from "./ContentActionCard";
 
+import ModalContainer from "./ModalContainer";
+
 export {
     Header,
     Footer,
@@ -14,4 +16,6 @@ export {
     ChannelCard,
     ContentCard,
     ContentActionCard,
+
+    ModalContainer,
 }
