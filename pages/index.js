@@ -1,8 +1,34 @@
+import { useEffect, useState } from 'react'
 import { HiArrowNarrowRight } from 'react-icons/hi'
+import { API } from '@/config/api'
+
 import { ActivityCard, ChannelCard, ContentCard, ContentActionCard } from "@/components"
-import { activities, channels, documents, peoples, videos } from '@/dummyData'
+import { channels, documents, peoples, videos } from '@/dummyData'
+import { useMutation } from '@tanstack/react-query'
 
 export default function Home() {
+
+  const [comments, setCommets] = useState([])
+
+  const {mutate} = useMutation({
+      mutationFn: async () => {
+        try {
+          const data = await API.get('/comment?limit=5')
+          setCommets(data.data.data)
+        } catch ( err ) {
+          alert( err.response.data.msg || err.response.data.message )
+        }
+      },
+    } )
+
+
+  useEffect(() => {
+    mutate({
+      id: Date.now(),
+      title: 'comments'
+    })
+  },[])
+
   return (
     <div className="pl-4 md:pl-0 grid md:grid-cols-3 grid-cols-1 gap-5">
 
@@ -17,6 +43,7 @@ export default function Home() {
           {videos.map((video, index) => {
             return(
               <ContentCard
+                key={index}
                 title={video.title}
                 creator={video.creator}
                 type='video'
@@ -38,9 +65,9 @@ export default function Home() {
           <HiArrowNarrowRight className='md:hidden'/> 
         </div>
         <div>
-          {activities.map((activity, index) => {
+          {comments.map((comment, index) => {
             return(
-              <ActivityCard key={index} name={activity.name} message={activity.message} timeElapsed={activity.timeElapsed} />
+              <ActivityCard key={index} name={comment?.owner?.firstName} message={comment.message} timeElapsed={comment.publishDate} />
             )
           })}
         </div>
